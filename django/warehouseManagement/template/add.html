@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Getting Started</title>
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style type="text/css">
+      .App {
+        text-align: center;
+
+        font-family: "Poppins", sans-serif;
+      }
+
+      .navbar {
+        background: black;
+      }
+
+      .navbar-brand {
+        color: white;
+        font-weight: 600;
+      }
+
+      .navbar-brand:hover {
+        color: #3dcfd3;
+        transition: all 0.3s ease;
+      }
+
+      .nav-item {
+        padding-left: 2rem;
+      }
+
+      .nav-link {
+        color: white;
+      }
+
+      .nav-link:hover {
+        color: #3dcfd3;
+        transition: all 0.3s ease;
+      }
+
+      .jumbotron {
+        background: black;
+      }
+
+      .jumbotron img {
+        width: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="App">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="./">
+          CompBrats
+        </a>
+
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="add.html">
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Prediction
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Add Item
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="jumbotron">
+        <img src="logo1.png" alt="logo" />
+      </div>
+
+      <div class="container row justify-content-center">
+        <div class="col-8">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">item Name</th>
+                <th scope="col">Prediction For Week</th>
+                <th scope="col">Predicted Quantity(unit)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Banana</td>
+                <td>2017-01</td>
+                <td>124</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Apple</td>
+                <td>2017-01</td>
+                <td>240</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Bread</td>
+                <td>2017-01</td>
+                <td>24</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
