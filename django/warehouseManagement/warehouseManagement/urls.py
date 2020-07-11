@@ -20,7 +20,7 @@ from firstpage import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('^$', views.index, name = "Homepage"),
-    url('predictSales', views.predictSales, name = 'PredictSales'),
-    url('add', views.add, name = 'add'),
+    url('^$', views.index, name="table"),
+    url('predictSales', views.predictSales, name='PredictSales'),
+    url('add', views.add, name='add'),
 ]

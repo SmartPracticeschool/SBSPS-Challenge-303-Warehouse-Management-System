@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load static %}
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -21,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="stylesheet" href="./css/styles.css" />
     <style type="text/css">
       .App {
         text-align: center;
@@ -67,11 +66,11 @@
         color: #3dcfd3;
       }
       .animation-wrapper {
-        animation: fadeIn 2s ease;
+        animation: fadeAnime 2s ease;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
       }
-      @keyframes fadeIn {
+      @keyframes fadeAnime {
         0% {
           opacity: 0;
         }
@@ -87,36 +86,38 @@
           width: 50%;
         }
       }
+      .table {
+        margin-left: auto;
+        margin-right: auto;
+      }
     </style>
   </head>
 
   <body>
     <div class="App">
       <nav class="navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand" href="./">
+        <a class="navbar-brand" href="/">
           CompBrats
         </a>
         <button
-          class="navbar-toggler"
           type="button"
+          class="navbar-toggler"
           data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          data-target="#navbartog"
         >
           <span class="fas fa-bars"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <div class="collapse navbar-collapse" id="navbartog">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'table' %}">
+            <li class="nav-item active">
+              <a class="nav-link active" href="/">
                 Prediction
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" href="/">
+              <a class="nav-link" href="{% url 'add' %}">
                 Update
               </a>
             </li>
@@ -129,58 +130,44 @@
         </div>
       </nav>
       <div class="jumbotron">
+        {% load static %}
         <img src="{% static 'logo1.png' %}" alt="logo" />
       </div>
-    </div>
-    <div class="container animation-wrapper">
-      <form method="POST" enctype="multipart/form-data" action="predictSales">
-        {% csrf_token %}
-        <div class="form-group">
-          <div class="row">
-            <div class="col-4 col-md-2 mt-1">
-              <label for="item_no">Item No. :</label>
-            </div>
-            <div class="col-8 col-md-2">
-              <input
-                type="text"
-                class="form-control"
-                name="item_no"
-                id="item_no"
-              />
-            </div>
-          </div>
+      {{ a }}
+      <div class="container animation-wrapper row">
+        <div class="col-12">
+          <table class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">item Name</th>
+                <th scope="col">Prediction For Week</th>
+                <th scope="col">Predicted Quantity(unit)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Banana</td>
+                <td>2017-01</td>
+                <td>124</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Apple</td>
+                <td>2017-01</td>
+                <td>240</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Bread</td>
+                <td>2017-01</td>
+                <td>24</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-4 col-md-2 mt-1">
-              <label for="sales">Sales :</label>
-            </div>
-            <div class="col-8 col-md-2">
-              <input type="text" class="form-control" name="sales" id="sales" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-4 col-md-2 mt-1">
-              <label for="date">Date :</label>
-            </div>
-            <div class="col-8 col-md-2">
-              <input type="text" class="form-control" name="date" id="date" />
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-4 col-md-2 mt-1"></div>
-            <div class="col-8 col-md-2 text-right">
-              <button class="btn btn-success" type="submit">
-                Add Item
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
