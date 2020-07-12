@@ -133,9 +133,9 @@
         {% load static %}
         <img src="{% static 'logo1.png' %}" alt="logo" />
       </div>
-      {{ a }}
+      
       <div class="container animation-wrapper row">
-        <div class="col-12">
+        <div class="col-12 offset-xl-7">
           <table class="table table-hover table-responsive">
             <thead>
               <tr>
@@ -149,8 +149,8 @@
               <tr>
                 <th scope="row">1</th>
                 <td>Banana</td>
-                <td>2017-01</td>
-                <td>124</td>
+                <td>{{date}}</td>
+                <td>{{sales}}</td>
               </tr>
               <tr>
                 <th scope="row">2</th>

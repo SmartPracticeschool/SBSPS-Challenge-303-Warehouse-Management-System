@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from sales import callingFunction
+#os.system('pip install scikit-learn')
 
 
 def index(request):
@@ -8,14 +10,18 @@ def index(request):
 
 
 def predictSales(request):
-    context = {"a": "Hello World"}
     if request.method == 'POST':
         print(request.POST.dict())
         temp = {}
         temp['item_no'] = request.POST.get("item_no")
         temp['sales'] = request.POST.get("sales")
         temp['date'] = request.POST.get("date")
-    return render(request, "table.html", context)
+    result = {}
+
+    result = callingFunction(
+        int(temp['item_no']), temp['date'], int(temp['sales']), "2018-02")
+    print(result)
+    return render(request, "table.html", result)
 
 
 def add(request):
