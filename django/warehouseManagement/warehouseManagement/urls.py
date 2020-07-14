@@ -23,4 +23,5 @@ urlpatterns = [
     url('^$', views.index, name="table"),
     url('predictSales', views.predictSales, name='PredictSales'),
     url('add', views.add, name='add'),
+    url('item1', views.item1, name='item1'),
 ]

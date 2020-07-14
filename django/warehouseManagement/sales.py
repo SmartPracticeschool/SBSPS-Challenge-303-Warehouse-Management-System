@@ -1,12 +1,12 @@
-import os
+#import os
 
 import xgboost as xgb
 import pandas as pd
 import numpy as np
 import datetime as dt
 from sklearn.preprocessing import MinMaxScaler
-
-
+from csv import writer
+from datetime import datetime
 
 def callingFunction(item_no, date1, sales1, date2):
     def getWeekYear(data):
@@ -134,26 +134,39 @@ def callingFunction(item_no, date1, sales1, date2):
             predictions = mod.predict(X_test)
 
             # Undo scaling to compare predictions against original data
-            original_df = weekly_s_collection[1]
+            original_df = weekly_s_collection[item_no]
             unscaled = undo_scaling(predictions, X_test, scaler_object)
             unscaled_df = predict_df(unscaled, original_df)
             return unscaled_df, original_df, mod
 
-        train, test = tts(model_df[1])
+        train, test = tts(model_df[item_no])
         unscaled_df, original_df, model = regressive_model(train, test, xgb.XGBRegressor(
             n_estimators=100, learning_rate=0.2, objective='reg:squarederror'), 'XGBoost')
         return unscaled_df
 
-    df = pd.read_csv("/home/aashish/Hackathon/model/Warehouse_train.csv")
+    #write the new actual sales to csv
+    def update_csv():
+        with open("D:\IBM_Hack_2020/Warehouse_train_copy.csv", 'a+', newline='') as write_obj :
+            csv_writer = writer(write_obj)
+            csv_writer.writerow([datetime.strptime(date1, '%Y-%m-%d').date(), 0, item_no, sales1])
+    
+    
+    update_csv()
+    ans_date = date2
+    df = pd.read_csv("D:\IBM_Hack_2020/Warehouse_train_copy.csv")
+    date1 = str(str(date1)[0:4])+"-"+str(dt.date(int(str(date1)[0:4]), int(str(date1)[5:7]), int(str(date1)[8:10])).isocalendar()[1]).zfill(2)
+    date2 = str(str(date2)[0:4])+"-"+str(dt.date(int(str(date2)[0:4]), int(str(date2)[5:7]), int(str(date2)[8:10])).isocalendar()[1]).zfill(2)
+
     weekly_data = getWeekYear(df)
     generate_model_df()
-    appendWeek(item_no, date1, sales1)
+    #appendWeek(item_no, date1, sales1)
     appendWeek(item_no, date2, 0)
+    
     unscaled_df = makeModel()
 
     dict1 = {
         "item_no": item_no,
-        "date": date2,
+        "date": ans_date,
         "sales": int(unscaled_df.iloc[0]['pred_value'])
     }
 
