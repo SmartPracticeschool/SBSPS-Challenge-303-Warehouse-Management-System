@@ -1,7 +1,13 @@
 # SBSPS-Challenge-303-Warehouse-Management-System
 
-Link for Warehouse Management Project demo - https://youtu.be/qBoacBJfYGo
+Link for Warehouse Management Project
 
+
+ video1 - https://youtu.be/qBoacBJfYGo !!Please bear with audio problems during Model Explanation -> made another video for that section
+ video2 - https://youtu.be/rkjOUE4Jth0 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The project has been developed for the IBM Hack Challenge 2020.
 1. Our project is a responsive cross-browser web application to predict weekly sales for perishable goods.
 
