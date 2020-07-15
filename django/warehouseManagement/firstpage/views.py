@@ -75,3 +75,7 @@ def item1(request):
 
     context = {"sales_list":salesJSON,"dates_list":datesJSON,"item_no":item_no, "date_pred": date1,"sales_pred":json_obj["sales"]}
     return render(request, 'item1.html', context)
+
+def about(request):
+    context = {'a': 'HelloWorld!'}
+    return render(request, 'about.html', context)

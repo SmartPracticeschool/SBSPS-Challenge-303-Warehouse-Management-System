@@ -133,15 +133,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/">
-                Contact
+              <a class="nav-link" href="{% url 'about' %}">
+                About Us
               </a>
             </li>
           </ul>
         </div>
       </nav>
       <div class="jumbotron">
-        <img src="{% static 'logo1.png' %}" alt="logo" />
+        <img src="{% static 'logo1.png' %}" alt="logo" class="width:100%;" />
       </div>
     </div>
     <div class="container animation-wrapper">
@@ -152,7 +152,7 @@
             <div class="col-4 col-md-2 mt-1">
               <label for="item_no">Item ID :</label>
             </div>
-            <div class="col-8 col-md-2">
+            <div class="col-8 col-md-5">
               <input
                 type="text"
                 class="form-control"
@@ -167,7 +167,7 @@
             <div class="col-4 col-md-2 mt-1">
               <label for="sales">Sales :</label>
             </div>
-            <div class="col-8 col-md-2">
+            <div class="col-8 col-md-5">
               <input type="text" class="form-control" name="sales" id="sales" />
             </div>
           </div>
@@ -177,7 +177,7 @@
             <div class="col-4 col-md-2 mt-1">
               <label for="date">Date :</label>
             </div>
-            <div class="col-8 col-md-2">
+            <div class="col-8 col-md-5 ">
               <input type="date" class="form-control" name="date" id="date" />
             </div>
           </div>
@@ -209,7 +209,9 @@
       integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
       crossorigin="anonymous"
     ></script>
-    <footer>
+    
+  </body>
+  <footer>
       <div class="row justify-content-center">
         {% load static %}
         <h4
@@ -225,5 +227,4 @@
         </p>
       </div>
     </footer>
-  </body>
 </html>
